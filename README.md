@@ -1,0 +1,3 @@
+# Employee Time Clock System
+
+Initializing repository...

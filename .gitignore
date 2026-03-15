@@ -1,8 +1,19 @@
-# .gitignore
-
-# Ignore Python cache files
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 
-# Ignore environment variables
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
 .env
+
+# Local-only config (contains secrets) — never commit
+config_local.py
+
+# Sensitive runtime data (employee punches/exports/logs) — never commit
+data/
+exports/
+*.log

@@ -211,12 +211,14 @@ def clock_event(code: str):
 
     day = data[emp_id]['days'].setdefault(date_key, [])
 
-    if len(day) % 2 == 0:
-        day.append({'in': time_str})
-        action = 'IN'
-    else:
+    # Decide IN/OUT based on whether the last punch is still "open"
+    # (has an 'in' time but no 'out' time yet).
+    if day and isinstance(day[-1], dict) and day[-1].get('in') and not day[-1].get('out'):
         day[-1]['out'] = time_str
         action = 'OUT'
+    else:
+        day.append({'in': time_str})
+        action = 'IN'
 
     _save(ps, data)
     log.info('Clock %s: %s (%s) at %s', action, name, emp_id, now.strftime('%Y-%m-%d %H:%M:%S'))

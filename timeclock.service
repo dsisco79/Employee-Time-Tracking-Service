@@ -1,0 +1,10 @@
+# timeclock.service
+
+[Unit]
+Description=Raspberry Pi Time Clock Service
+
+[Service]
+ExecStart=/usr/bin/python3 /path/to/timeclock.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+# requirements.txt
+
+# Required packages placeholder
+
+Flask
+RPi.GPIO
+OtherPackage
